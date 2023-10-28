@@ -2,6 +2,7 @@ import AppKit
 
 extension UserDefaults {
   public struct Keys {
+    static let enableHistoryShortcuts = "enableHistoryShortcuts"
     static let avoidTakingFocus = "avoidTakingFocus"
     static let clearOnQuit = "clearOnQuit"
     static let clearSystemClipboard = "clearSystemClipboard"
@@ -61,6 +62,11 @@ extension UserDefaults {
     static let size = 200
     static let sortBy = "lastCopiedAt"
     static let menuIcon = "maccy"
+  }
+    
+  public var enableHistoryShortcuts: Bool {
+    get { bool(forKey: Keys.enableHistoryShortcuts) }
+    set { set(newValue, forKey: Keys.enableHistoryShortcuts) }
   }
 
   public var avoidTakingFocus: Bool {

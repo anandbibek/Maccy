@@ -12,6 +12,7 @@ class AdvancedSettingsViewController: NSViewController, SettingsPane {
   @IBOutlet weak var avoidTakingFocusButton: NSButton!
   @IBOutlet weak var clearOnQuitButton: NSButton!
   @IBOutlet weak var clearSystemClipboardButton: NSButton!
+  @IBOutlet weak var historyShortcutsButton: NSButton!
 
   private let exampleIgnoredType = "zzz.yyy.xxx"
 
@@ -21,6 +22,7 @@ class AdvancedSettingsViewController: NSViewController, SettingsPane {
     populateAvoidTakingFocus()
     populateClearOnQuit()
     populateClearSystemClipboard()
+    populateHistoryShortcuts()
   }
 
   @IBAction func turnOffChanged(_ sender: NSButton) {
@@ -38,6 +40,10 @@ class AdvancedSettingsViewController: NSViewController, SettingsPane {
   @IBAction func clearSystemClipboardChanged(_ sender: NSButton) {
     UserDefaults.standard.clearSystemClipboard = (sender.state == .on)
   }
+    
+  @IBAction func historyShortcutsChanged(_ sender: NSButton) {
+    UserDefaults.standard.enableHistoryShortcuts = (sender.state == .on)
+  }
 
   private func populateTurnOff() {
     turnOffButton.state = UserDefaults.standard.ignoreEvents ? .on : .off
@@ -53,5 +59,9 @@ class AdvancedSettingsViewController: NSViewController, SettingsPane {
 
   private func populateClearSystemClipboard() {
     clearSystemClipboardButton.state = UserDefaults.standard.clearSystemClipboard ? .on : .off
+  }
+    
+  private func populateHistoryShortcuts() {
+    historyShortcutsButton.state = UserDefaults.standard.enableHistoryShortcuts ? .on : .off
   }
 }
