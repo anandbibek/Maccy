@@ -129,6 +129,7 @@ class HistoryMenuItem: NSMenuItem {
 
       if Range(highlightRange, in: title) != nil {
         attributedTitle.addAttribute(.font, value: highlightFont, range: highlightRange)
+        attributedTitle.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: highlightRange)
       }
     }
 
