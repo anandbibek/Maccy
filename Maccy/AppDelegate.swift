@@ -10,6 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @IBOutlet weak var pasteMenuItem: NSMenuItem!
 
   private var hotKey: GlobalHotKey!
+  private var pasteHotKey: GlobalPasteHotKey!
   private var maccy: Maccy!
 
   func applicationWillFinishLaunching(_ notification: Notification) {
@@ -29,6 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     maccy = Maccy()
     hotKey = GlobalHotKey(maccy.popUp)
+    pasteHotKey = GlobalPasteHotKey{ index in
+        self.maccy.select(position: index - 1)
+    }
   }
 
   func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
