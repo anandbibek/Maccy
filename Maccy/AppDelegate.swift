@@ -30,8 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     maccy = Maccy()
     hotKey = GlobalHotKey(maccy.popUp)
-    pasteHotKey = GlobalPasteHotKey{ index in
+    if UserDefaults.standard.enableHistoryShortcuts {
+      pasteHotKey = GlobalPasteHotKey{ index in
         self.maccy.select(position: index - 1)
+      }
     }
   }
 
