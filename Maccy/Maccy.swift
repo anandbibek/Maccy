@@ -1,4 +1,5 @@
 import Cocoa
+import KeyboardShortcuts
 import Settings
 
 // swiftlint:disable type_body_length
@@ -64,6 +65,7 @@ class Maccy: NSObject {
 
     super.init()
     initializeObservers()
+    disableUnusedGlobalHotkeys()
 
     menu = Menu(history: history, clipboard: Clipboard.shared)
     menuController = MenuController(menu, statusItem)
@@ -93,6 +95,10 @@ class Maccy: NSObject {
 
   func select(position: Int) -> String? {
     return menu.select(position: position)
+  }
+
+  func delete(position: Int) -> String? {
+    return menu.delete(position: position)
   }
 
   func item(at position: Int) -> HistoryItem? {
@@ -300,6 +306,21 @@ class Maccy: NSObject {
     }
     statusItemChangeObserver = UserDefaults.standard.observe(\.menuIcon, options: .new) { _, change in
       self.updateStatusMenuIcon(change.newValue!)
+    }
+  }
+
+  private func disableUnusedGlobalHotkeys() {
+    let names: [KeyboardShortcuts.Name] = [.delete, .pin]
+    names.forEach(KeyboardShortcuts.disable)
+
+    NotificationCenter.default.addObserver(
+      forName: Notification.Name("KeyboardShortcuts_shortcutByNameDidChange"),
+      object: nil,
+      queue: nil
+    ) { notification in
+      if let name = notification.userInfo?["name"] as? KeyboardShortcuts.Name, names.contains(name) {
+        KeyboardShortcuts.disable(name)
+      }
     }
   }
 }

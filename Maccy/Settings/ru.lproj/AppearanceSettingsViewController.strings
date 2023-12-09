@@ -22,9 +22,6 @@
 /* Class = "NSTextFieldCell"; title = "Popup at:"; ObjectID = "R7Y-UN-Edt"; */
 "R7Y-UN-Edt.title" = "Всплывать у:";
 
-/* Class = "NSTextFieldCell"; title = "Maximum image preview height: {imageHeight}.\nDefault: 40.\nHint: Set to 16 to look like text items."; ObjectID = "bIP-Mi-SeJ"; */
-"bIP-Mi-SeJ.title" = "Максимальная высота предпросмотра изображений: {imageHeight}.\nПо умолчанию: 40.\nСовет: Поставьте 16 для схожести с текстовыми записями.";
-
 /* Class = "NSButtonCell"; title = "Show title before search field"; ObjectID = "ePT-qq-kg9"; */
 "ePT-qq-kg9.title" = "Показывать название перед поиском";
 
@@ -37,9 +34,6 @@
 /* Class = "NSTextFieldCell"; title = "Number of items:"; ObjectID = "gjR-wz-7GQ"; */
 "gjR-wz-7GQ.title" = "Количество записей:";
 
-/* Class = "NSTextFieldCell"; title = "Number of visible items: {menuSize}.\nHidden items are still kept in history and can be found using search.\nSet to 0 to make all items visible.\nDefault: 0."; ObjectID = "j39-nx-OGb"; */
-"j39-nx-OGb.title" = "Количество видимых записей: {menuSize}.\nСкрытые записи будут доступны в истории и с помощью поиска.\nПоставьте 0, чтобы все записи были видимы.\nПо умолчанию: 0.";
-
 /* Class = "NSTextFieldCell"; title = "Pin to:"; ObjectID = "GhW-Kv-rhO"; */
 "GhW-Kv-rhO.title" = "Прикреплять к:";
 
@@ -49,17 +43,8 @@
 /* Class = "NSMenuItem"; title = "Bottom"; ObjectID = "Yio-8e-oaa"; */
 "Yio-8e-oaa.title" = "Низу";
 
-/* Class = "NSTextFieldCell"; title = "Change the location of pinned items.\nDefault: Top."; ObjectID = "aqA-NI-K5d"; */
-"aqA-NI-K5d.title" = "Изменить место прикрепленных записей.\nПо умолчанию: Верх.";
-
 /* Class = "NSTextFieldCell"; title = "Title length:"; ObjectID = "TgE-eS-5nT"; */
 "TgE-eS-5nT.title" = "Длина названия:";
-
-/* Class = "NSTextFieldCell"; title = "Maximum number of characters in the item title: {maxMenuItemLength}.\nDefault: 50."; ObjectID = "mG7-wI-7Eb"; */
-"mG7-wI-7Eb.title" = "Максимальное количество знаков в названии записи: {maxMenuItemLength}.\nПо умолчанию: 50.";
-
-/* Class = "NSTextFieldCell"; title = "Delay in milliseconds until a preview popup is shown.\nDefault: 1500."; ObjectID = "1Mt-Lg-Smd"; */
-"1Mt-Lg-Smd.title" = "Задержка в миллисекундах до появления всплывающего окна предварительного просмотра.\nПо умолчанию: 1500.";
 
 /* Class = "NSTextFieldCell"; title = "Preview delay:"; ObjectID = "lnS-Rg-4sa"; */
 "lnS-Rg-4sa.title" = "Задержка предварительного просмотра:";
@@ -69,3 +54,18 @@
 
 /* Class = "NSPopUpButton"; ibShadowedToolTip = "Change the location where popup appears.\nDefault: Cursor."; ObjectID = "ZHc-k4-Nf9"; */
 "ZHc-k4-Nf9.ibShadowedToolTip" = "Изменить место для появления всплывающего окна.\nПо умолчанию: Курсор.";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Change the location of pinned items.\nDefault: Top."; ObjectID = "tWw-ax-Qej"; */
+"tWw-ax-Qej.ibShadowedToolTip" = "Изменить место прикрепленных записей.\nПо умолчанию: Верх.";
+
+/* Class = "NSStackView"; ibShadowedToolTip = "Maximum image preview height.\nDefault: 40.\nHint: Set to 16 to look like text items."; ObjectID = "Tsp-4i-Mym"; */
+"Tsp-4i-Mym.ibShadowedToolTip" = "Максимальная высота предпросмотра изображений.\nПо умолчанию: 40.\nСовет: Поставьте 16 для схожести с текстовыми записями.";
+
+/* Class = "NSStackView"; ibShadowedToolTip = "Number of visible items.\nHidden items are still kept in history and can be found using search.\nSet to 0 to make all items visible.\nDefault: 0."; ObjectID = "a8Y-aG-9on"; */
+"a8Y-aG-9on.ibShadowedToolTip" = "Количество видимых записей.\nСкрытые записи будут доступны в истории и с помощью поиска.\nПоставьте 0, чтобы все записи были видимы.\nПо умолчанию: 0.";
+
+/* Class = "NSStackView"; ibShadowedToolTip = "Maximum number of characters in the item title.\nDefault: 50."; ObjectID = "XGd-Fg-wS9"; */
+"XGd-Fg-wS9.ibShadowedToolTip" = "Максимальное количество знаков в названии записи.\nПо умолчанию: 50.";
+
+/* Class = "NSStackView"; ibShadowedToolTip = "Delay in milliseconds until a preview popup is shown.\nDefault: 1500."; ObjectID = "7SP-tN-nLD"; */
+"7SP-tN-nLD.ibShadowedToolTip" = "Задержка в миллисекундах до появления всплывающего окна предварительного просмотра.\nПо умолчанию: 1500.";

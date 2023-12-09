@@ -10,19 +10,24 @@ class GeneralSettingsViewController: NSViewController, SettingsPane {
 
   override var nibName: NSNib.Name? { "GeneralSettingsViewController" }
 
-  private let hotkeyRecorder = KeyboardShortcuts.RecorderCocoa(for: .popup)
+  private let popupHotkeyRecorder = KeyboardShortcuts.RecorderCocoa(for: .popup)
+  private let pinHotkeyRecorder = KeyboardShortcuts.RecorderCocoa(for: .pin)
+  private let deleteHotkeyRecorder = KeyboardShortcuts.RecorderCocoa(for: .delete)
 
-  @IBOutlet weak var hotkeyContainerView: NSView!
+  @IBOutlet weak var popupHotkeyContainerView: NSView!
+  @IBOutlet weak var pinHotkeyContainerView: NSView!
+  @IBOutlet weak var deleteHotkeyContainerView: NSView!
   @IBOutlet weak var launchAtLoginButton: NSButton!
   @IBOutlet weak var searchModeButton: NSPopUpButton!
   @IBOutlet weak var pasteAutomaticallyButton: NSButton!
   @IBOutlet weak var removeFormattingButton: NSButton!
   @IBOutlet weak var modifiersDescriptionLabel: NSTextField!
-  @IBOutlet weak var soundsButton: NSButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    hotkeyContainerView.addSubview(hotkeyRecorder)
+    popupHotkeyContainerView.addSubview(popupHotkeyRecorder)
+    pinHotkeyContainerView.addSubview(pinHotkeyRecorder)
+    deleteHotkeyContainerView.addSubview(deleteHotkeyRecorder)
   }
 
   override func viewWillAppear() {
@@ -32,7 +37,6 @@ class GeneralSettingsViewController: NSViewController, SettingsPane {
     populatePasteAutomatically()
     populateRemoveFormatting()
     updateModifiersDescriptionLabel()
-    populateSounds()
   }
 
   @IBAction func launchAtLoginChanged(_ sender: NSButton) {
@@ -60,10 +64,6 @@ class GeneralSettingsViewController: NSViewController, SettingsPane {
   @IBAction func removeFormattingChanged(_ sender: NSButton) {
     UserDefaults.standard.removeFormattingByDefault = (sender.state == .on)
     updateModifiersDescriptionLabel()
-  }
-
-  @IBAction func soundsChanged(_ sender: NSButton) {
-    UserDefaults.standard.playSounds = (sender.state == .on)
   }
 
   private func populateLaunchAtLogin() {
@@ -103,7 +103,4 @@ class GeneralSettingsViewController: NSViewController, SettingsPane {
     modifiersDescriptionLabel.stringValue = descriptions.joined(separator: "\n")
   }
 
-  private func populateSounds() {
-    soundsButton.state = UserDefaults.standard.playSounds ? .on : .off
-  }
 }

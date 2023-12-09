@@ -1,4 +1,5 @@
 import Cocoa
+import KeyboardShortcuts
 
 class Preview: NSViewController {
   @IBOutlet weak var textView: NSTextField!
@@ -7,17 +8,21 @@ class Preview: NSViewController {
   @IBOutlet weak var firstCopyTimeValueLabel: NSTextField!
   @IBOutlet weak var lastCopyTimeValueLabel: NSTextField!
   @IBOutlet weak var numberOfCopiesValueLabel: NSTextField!
+  @IBOutlet weak var deleteLabel: NSTextField!
+  @IBOutlet weak var pinLabel: NSTextField!
 
   private let maxTextSize = 1_500
 
-  private var item: HistoryItem!
+  private var item: HistoryItem?
 
-  convenience init(item: HistoryItem) {
+  convenience init(item: HistoryItem?) {
     self.init()
     self.item = item
   }
 
   override func viewDidLoad() {
+    guard let item, !item.isFault else { return }
+
     if let image = item.image {
       textView.removeFromSuperview()
       imageView.image = image
@@ -56,6 +61,20 @@ class Preview: NSViewController {
     firstCopyTimeValueLabel.stringValue = formatDate(item.firstCopiedAt)
     lastCopyTimeValueLabel.stringValue = formatDate(item.lastCopiedAt)
     numberOfCopiesValueLabel.stringValue = String(item.numberOfCopies)
+
+    if let deleteKey = KeyboardShortcuts.Shortcut(name: .delete) {
+      deleteLabel.stringValue = deleteLabel.stringValue
+        .replacingOccurrences(of: "{deleteKey}", with: deleteKey.description)
+    } else {
+      deleteLabel.removeFromSuperview()
+    }
+
+    if let pinKey = KeyboardShortcuts.Shortcut(name: .pin) {
+      pinLabel.stringValue = pinLabel.stringValue
+        .replacingOccurrences(of: "{pinKey}", with: pinKey.description)
+    } else {
+      pinLabel.removeFromSuperview()
+    }
   }
 
   private func formatDate(_ date: Date) -> String {

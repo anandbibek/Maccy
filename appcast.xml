@@ -6,27 +6,22 @@
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
     <item>
-      <title>0.28.0</title>
+      <title>0.29.2</title>
       <description>
         <![CDATA[
           <ul>
-            <li>Added support for ignoring text copies based on regular expressions.</li>
-            <li>Fixed an issue when copying anything in Microsoft Word would create an in-app bookmark.</li>
-            <li>Fixed a slow search on macOS Sonoma.</li>
-            <li>Fixed a preview position on macOS Sonoma.</li>
-            <li>Fixed a popup position on macOS Sonoma.</li>
-            <li>Fixed a selection of pins with a "v" letter assigned.</li>
-            <li>Fixed a preferences window not being focused on macOS Sonoma.</li>
+            <li>Fixed Chinese input not working when Maccy is open via global hotkey.</li>
+            <li>Fixed search not cleared after selecting item in history.</li>
           </ul>
         ]]>
       </description>
-      <pubDate>2023-10-20</pubDate>
-      <releaseNotesLink>https://github.com/p0deje/Maccy/releases/tag/0.28.0</releaseNotesLink>
+      <pubDate>2023-12-04</pubDate>
+      <releaseNotesLink>https://github.com/p0deje/Maccy/releases/tag/0.29.2</releaseNotesLink>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
       <enclosure
-        url="https://github.com/p0deje/Maccy/releases/download/0.28.0/Maccy.app.zip"
-        sparkle:version="23"
-        sparkle:shortVersionString="0.28.0"
+        url="https://github.com/p0deje/Maccy/releases/download/0.29.2/Maccy.app.zip"
+        sparkle:version="26"
+        sparkle:shortVersionString="0.29.2"
         length="0"
         type="application/octet-stream"
       />

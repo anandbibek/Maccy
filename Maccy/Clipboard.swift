@@ -60,7 +60,9 @@ class Clipboard {
     checkForChangesInPasteboard()
   }
 
-  func copy(_ item: HistoryItem, removeFormatting: Bool = false) {
+  func copy(_ item: HistoryItem?, removeFormatting: Bool = false) {
+    guard let item else { return }
+
     pasteboard.clearContents()
     var contents = item.getContents()
 
@@ -81,9 +83,7 @@ class Clipboard {
     }
     pasteboard.setString("", forType: .fromMaccy)
 
-    if UserDefaults.standard.playSounds {
-      NSSound(named: NSSound.Name("knock"))?.play()
-    }
+    Notifier.notify(body: item.title, sound: .knock)
 
     checkForChangesInPasteboard()
   }
